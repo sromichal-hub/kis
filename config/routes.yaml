@@ -1,0 +1,11 @@
+controllers:
+  resource: '../src/Controller/'
+  type: attribute
+
+# default route for health check
+health:
+  path: /health
+  controller: Symfony\Component\HttpFoundation\Response::class
+  defaults:
+    _format: text
+

@@ -1,0 +1,27 @@
+{
+  "name": "kis/library-api",
+  "description": "Symfony-based Library API for tracking books (Docker-ready)",
+  "type": "project",
+  "require": {
+    "php": "^8.1",
+    "ext-pdo": "*",
+    "symfony/framework-bundle": "^6.4",
+    "symfony/http-kernel": "^6.4",
+    "symfony/routing": "^6.4",
+    "symfony/http-foundation": "^6.4",
+    "symfony/console": "^6.4",
+    "symfony/dotenv": "^6.4",
+    "doctrine/orm": "^2.14",
+    "doctrine/doctrine-bundle": "^2.10",
+    "doctrine/doctrine-migrations-bundle": "^3.7",
+    "symfony/yaml": "^6.4"
+  },
+  "autoload": {
+    "psr-4": { "App\\": "src/" }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}
+
