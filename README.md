@@ -114,6 +114,35 @@ Pliki istotne
 - `config/services.yaml` — konfiguracja serwisów (tag controller.service_arguments)
 - `docker-entrypoint.sh`, `Dockerfile`, `docker-compose.yml` — uruchomienie i migracje
 
+Tests
+
+To run automated functional tests (requires PHPUnit and Symfony test packages):
+
+1. Install dev dependencies locally (from project root):
+
+```bash
+composer require --dev phpunit/phpunit symfony/browser-kit symfony/css-selector
+```
+
+2. Ensure PHP has SQLite PDO extension (for in-memory DB used by tests):
+
+```bash
+php -m | grep sqlite
+# or on Debian/Ubuntu: sudo apt-get install php-sqlite3
+```
+
+3. Run tests:
+
+```bash
+# run all tests (uses phpunit.xml.dist)
+./vendor/bin/phpunit
+```
+
+Notes
+
+- Tests are functional and use an in-memory SQLite database, they create the schema dynamically before running and do not rely on your Postgres instance. This keeps tests fast and isolated.
+- If you prefer running tests against the Postgres DB, set `DATABASE_URL` in `phpunit.xml.dist` accordingly and make sure the DB is reachable from the test process.
+
 Kontakt / repo
 
 Projekt jest w katalogu lokalnym — jeśli chcesz, mogę pomóc przygotować publiczne repozytorium (GitHub/GitLab) i instrukcję deployowania do hostingu.

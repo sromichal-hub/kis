@@ -1,0 +1,25 @@
+doctrine:
+  dbal:
+    url: '%env(resolve:DATABASE_URL)%'
+    driver: 'pdo_sqlite'
+
+  orm:
+    auto_generate_proxy_classes: true
+    default_entity_manager: default
+    entity_managers:
+      default:
+        connection: default
+        mappings:
+          App:
+            is_bundle: false
+            type: attribute
+            dir: '%kernel.project_dir%/src/Entity'
+            prefix: 'App\Entity'
+            alias: App
+          AppYaml:
+            is_bundle: false
+            type: yml
+            dir: '%kernel.project_dir%/config/doctrine'
+            prefix: 'App\Entity'
+            alias: AppYaml
+
