@@ -14,8 +14,8 @@ services:
     depends_on:
       - db
     volumes:
-      - ./:/srv/app:cached
-    working_dir: /srv/app
+      - ./:/app:cached
+    working_dir: /app
     command: ["/bin/bash","-c","./docker-entrypoint.sh"]
 
   db:

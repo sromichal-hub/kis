@@ -18,19 +18,19 @@ RUN docker-php-ext-install pdo pdo_pgsql
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /srv/app
+WORKDIR /app
 
 # Copy composer files first to leverage Docker cache
-COPY composer.json composer.lock* /srv/app/
+COPY composer.json composer.lock* /app/
 
 # Install PHP dependencies (this runs at image build time)
 RUN if [ -f composer.lock ]; then composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader; else composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader || true; fi
 
 # Copy application files
-COPY . /srv/app
+COPY . /app
 
 # Make entrypoint executable
-RUN chmod +x /srv/app/docker-entrypoint.sh /srv/app/bin/console || true
+RUN chmod +x /app/docker-entrypoint.sh /app/bin/console || true
 
 EXPOSE 8000
 

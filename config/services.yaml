@@ -1,17 +1,16 @@
-parameters: {}
-
+# yaml-language-server: $schema=../vendor/symfony/dependency-injection/Loader/schema/services.schema.json
 services:
   _defaults:
     autowire: true
     autoconfigure: true
-    bind:
-      $projectDir: '%kernel.project_dir%'
 
-  App\:\\:
-    resource: '../src/*'
-    exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
-
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/Entity/'
+      - '../src/Kernel.php'
+  # Make controller services available for autowiring with constructor arguments
   App\Controller\:
-    resource: '../src/Controller'
+    resource: '../src/Controller/'
     tags: ['controller.service_arguments']
-

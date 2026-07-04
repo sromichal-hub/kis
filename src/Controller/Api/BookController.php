@@ -9,13 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/api/books')]
 class BookController
 {
-    public function __construct(private EntityManagerInterface $em, private BookRepository $repo, private ValidatorInterface $validator)
+    public function __construct(private EntityManagerInterface $em, private BookRepository $repo)
     {
     }
 
