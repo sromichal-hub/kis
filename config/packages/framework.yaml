@@ -1,0 +1,10 @@
+framework:
+  secret: '%env(APP_SECRET)%'
+  router:
+    resource: '%kernel.project_dir%/config/routes.yaml'
+    type: yaml
+    strict_requirements: ~
+  http_method_override: false
+  trusted_hosts: ~
+  csrf_protection: false
+

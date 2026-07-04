@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Remove all cache
+if [ -d var/cache ]; then
+  echo "Removing cache directory..."
+  rm -rf var/cache
+fi
+
 # Wait for Postgres to be ready
 DB_HOST=$(echo "${DATABASE_URL:-}" | sed -n 's/.*@\([^:]*\):\([0-9]*\)\/.*$/\1/p' || echo db)
 DB_PORT=$(echo "${DATABASE_URL:-}" | sed -n 's/.*@[^:]*:\([0-9]*\)\/.*$/\1/p' || echo 5432)

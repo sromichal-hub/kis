@@ -14,22 +14,22 @@ class Book
     #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    #[ORM\Column(type: 'string', length: 6, unique: true)]
+    #[ORM\Column(name: 'serial_number', type: 'string', length: 6, unique: true)]
     private string $serialNumber;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(name: 'title', type: 'string', length: 255)]
     private string $title;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(name: 'author', type: 'string', length: 255)]
     private string $author;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(name: 'is_borrowed', type: 'boolean')]
     private bool $isBorrowed = false;
 
-    #[ORM\Column(type: 'datetimetz', nullable: true)]
+    #[ORM\Column(name: 'borrowed_at', type: 'datetimetz', nullable: true)]
     private ?\DateTimeInterface $borrowedAt = null;
 
-    #[ORM\Column(type: 'string', length: 6, nullable: true)]
+    #[ORM\Column(name: 'borrowed_by_card_number', type: 'string', length: 6, nullable: true)]
     private ?string $borrowedByCardNumber = null;
 
     public function getId(): ?int

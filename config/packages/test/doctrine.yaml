@@ -1,8 +1,7 @@
 doctrine:
   dbal:
     url: '%env(resolve:DATABASE_URL)%'
-    driver: 'pdo_pgsql'
-    default_connection: default
+    driver: 'pdo_sqlite'
 
   orm:
     auto_generate_proxy_classes: true
