@@ -1,0 +1,62 @@
+# Composer
+/vendor/
+
+# Symfony / application runtime
+/var/
+/public/bundles/
+/public/build/
+
+# Environment variables
+/.env.local
+/.env.*.local
+/.env.local.php
+/.env.test
+
+# IDEs and editors
+/.idea/
+/.vscode/
+*.iml
+
+# Node
+/node_modules/
+/npm-debug.log*
+/yarn-error.log
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# System files
+.DS_Store
+Thumbs.db
+
+# PHPUnit
+.phpunit.result.cache
+
+# Docker (local overrides, credentials, builder artifacts)
+.docker/
+docker-compose.override.yml
+
+# Generated metadata
+/.phpunit/
+
+# OS temporary files
+*~
+.#*
+
+# Composer PHAR
+composer.phar
+
+# Ensure we don't accidentally commit IDE-specific run configs
+/run.xml
+
+# Optional: keep git from tracking generated public files
+/public/uploads/
+
+# Secrets (if any secret files are created by local setup)
+/config/secrets/*
+!config/secrets/.gitkeep
+
+# Local Git exclude file (not committed): use .git/info/exclude for personal ignores
+
