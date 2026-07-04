@@ -1,0 +1,35 @@
+App\Entity\Book:
+  type: entity
+  table: books
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    serialNumber:
+      type: string
+      column: serial_number
+      length: 6
+      unique: true
+    title:
+      type: string
+      column: title
+      length: 255
+    author:
+      type: string
+      column: author
+      length: 255
+    isBorrowed:
+      type: boolean
+      column: is_borrowed
+    borrowedAt:
+      type: datetimetz
+      column: borrowed_at
+      nullable: true
+    borrowedByCardNumber:
+      type: string
+      column: borrowed_by_card_number
+      length: 6
+      nullable: true
+
